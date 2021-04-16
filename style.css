@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Press Start 2P', cursive;   
+    background-color: rgb(22, 22, 22) ;
+}
+
+
+
+h2, p {
+    padding: 10px;
+    font-weight: 800;
+    color: #fff;
+}
+
+h2{
+    margin-top: 40px;
+    margin-bottom: 30px;    
+    text-align: center;
+    font-size: 2.4em;
+}
+/* Utility Classes */
+.container {
+    max-width: 1100px;
+    overflow: auto;
+    margin: 10px auto;
+    padding: 10px;
+    line-height: 1.3em;
+    border: solid 1px red;
+}
+
+.clr {
+    clear: both;
+}
+
+.btn{
+    background-color: #fff;
+    color: #444;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 0.3em;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Animations */
+
+.arcade-blink{
+    animation: blink 1s infinite;
+}
+
+/* Head of Page */
+
+header{
+    position: relative;
+}
+
+header p {
+    float: right;
+    margin: 20px;
+}
+
+header button{
+    float: left;
+    margin: 20px;
+}
