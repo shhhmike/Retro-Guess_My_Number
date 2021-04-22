@@ -1,28 +1,35 @@
+
+/* General Resets */
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-    font-family: 'Press Start 2P', cursive;   
-    background-color: rgb(22, 22, 22) ;
+header{
+    border: 1px green solid;
+    margin: 5px
 }
 
+html, body {
+    font-family: 'Press Start 2P', cursive;   
+    background: linear-gradient(to top, #283E51, #0A2342);
+    /* background:url('./images/nebula.jpeg') center center/cover no-repeat; */
+    height: 100vh;
+    overflow: hidden;
+}
 
-
-h2, p {
+p {
     padding: 10px;
-    font-weight: 800;
-    color: #fff;
 }
 
 h2{
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 30px;    
     text-align: center;
-    font-size: 2.4em;
 }
+
 /* Utility Classes */
 .container {
     max-width: 1100px;
@@ -40,17 +47,97 @@ h2{
 .btn{
     background-color: #fff;
     color: #444;
-    padding: 10px 20px;
+    padding: 20px 15px;
     font-family: 'Press Start 2P', cursive;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
     cursor: pointer;
     outline: none;
 }
 
-/* Animations */
+.txt-lg{
+    color: #fff;
+    font-size: 3.3rem;
+}
 
-.arcade-blink{
-    animation: blink 1s infinite;
+.txt-med{
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+/* Animations && KeyFrames */
+
+.blink {
+    animation: blink 1s both infinite;
+    -webkit-animation: blink 1s both infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.0;
+    }
+}
+@-webkit-keyframes blink {
+    50% {
+        opacity: 0.0;
+    }
+}
+
+/* Rainbow */
+.rainbow{
+    animation: rainbow 4s linear 0s forwards infinite;
+    -webkit-animation: rainbow 4s linear forwards 0s infinite;
+}
+
+@keyframes rainbow {
+    0% {
+      color: #6666ff;
+    }
+    10% {
+      color: #b4c006;
+    }
+    50% {
+        color: #ff3399;
+    }
+    75% {
+        color: #0dbe0d;
+    }
+    100% {
+      color: #6666ff;
+    }
+  }
+
+.jump{
+    animation: jump 0.8s 1s ease infinite;
+    -webkit-animation: jump 0.8s 1s ease infinite;
+}
+
+@keyframes jump{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.twirl{
+    animation: twirl ease 0.8s both infinite;
+    -webkit-animation: twirl ease 0.8s both infinite;
+}
+
+@keyframes twirl {
+    0%{
+        transform: rotateY(0deg);
+    }
+    50%{
+        transform: rotateY(180deg);
+    }
+    100%{
+        transform: rotateY(0deg);
+    }
 }
 
 /* Head of Page */
@@ -67,4 +154,70 @@ header p {
 header button{
     float: left;
     margin: 20px;
+    border-radius: 5%;
+    font-size: 1.1em;
+}
+
+header span {
+    text-align: center;
+}
+.card{
+    height: 135px;
+    width: 180px;
+    margin: 3.2rem auto;
+    padding-top: 60px;
+    text-align: center;
+    font-size: 4.5rem;
+    background-color: rgb(231, 230, 230);
+}
+
+
+.start_game{
+    position: relative;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.start_game a {
+    text-decoration: none;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    padding: 4px;
+    color: #fff;
+}
+
+.start_game img {
+    width:30px;
+    margin-bottom: 2px;
+}
+
+
+/* Main Content */
+
+.main_content{
+    position: relative;
+    width: 100%;
+}
+
+.main_content .left{
+    width: 48%;
+    float: left;
+    border: 1px solid yellow;
+}
+
+.main_content .left input{
+    display: block;
+    width: 25rem;
+    padding: 2.5rem;
+    margin: 0 auto;
+    outline: none;
+    text-align: center;
+    font-family: inherit;
+    font-size: 5rem;
+    transform: scale(0.7);
+}
+.main_content .left button{
+    display: block;
+    margin: 0 auto;
+    font-size: 1.2rem;
 }
