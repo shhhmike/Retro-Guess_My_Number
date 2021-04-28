@@ -14,7 +14,11 @@ header{
 
 html, body {
     font-family: 'Press Start 2P', cursive;   
-    background: linear-gradient(to top, #283E51, #0A2342);
+    background:   linear-gradient(
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.6)
+      ), url('/images/background.jpeg') center center/cover no-repeat;  
+
     /* background:url('./images/nebula.jpeg') center center/cover no-repeat; */
     height: 100vh;
     overflow: hidden;
@@ -33,7 +37,7 @@ h2{
 /* Utility Classes */
 .container {
     max-width: 1100px;
-    overflow: auto;
+    overflow: hidden;
     margin: 10px auto;
     padding: 10px;
     line-height: 1.3em;
@@ -45,6 +49,7 @@ h2{
 }
 
 .btn{
+    display: inline-block;
     background-color: #fff;
     color: #444;
     padding: 20px 15px;
@@ -64,8 +69,56 @@ h2{
     font-size: 1.5rem;
 }
 
+.star_close{
+    opacity: 0.7;
+}
+
+.star_far{
+    opacity: 0.5;
+}
+
+
+.star{
+    width: 9px;
+    height: 9px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.coin{
+    width:30px;
+}
+
+.hidden_coin{
+    position: absolute;
+    left: 525px;
+    z-index: 0;
+}
+
+.life_heart{
+    width: 45px;
+    height: 40px;
+    /* transition: transform 2s; */
+}
+
+.life_heart:hover{
+    cursor: pointer;
+    /* transform: rotate(200deg); */
+    /* transform: scale(1.8); */
+    animation: grow_jump 0.8s both 0s ease;
+    -webkit-animation: grow_jump 0.8s both 0s ease;
+}
+
+.shadow {
+    -webkit-box-shadow: 6px 4px 6px 3px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 6px 4px 6px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 6px 4px 6px 3px rgba(0, 0, 0, 0.4);
+}
+
+
 /* Animations && KeyFrames */
 
+/* Arcade style "start game" blink */
 .blink {
     animation: blink 1s both infinite;
     -webkit-animation: blink 1s both infinite;
@@ -82,33 +135,89 @@ h2{
     }
 }
 
+/* Different kinds of star blink animations, some go at a slower rate */
+.star_blink1{
+    animation: star-blink1 1.5s both infinite;
+    -webkit-animation: star-blink1 1.5s both infinite;
+}
+
+.star_blink2{
+    animation: star-blink1 2.4s  ease both infinite;
+    -webkit-animation: star-blink1 2.4s ease both infinite;
+}
+
+.star_blink3{
+    animation: star-blink1 0.8s  ease both infinite;
+    -webkit-animation: star-blink1 0.8s ease both infinite;
+}
+
+@keyframes star-blink1 {
+    50% {
+        opacity: 0.1;
+    }
+}
+@-webkit-keyframes star-blink1 {
+    50% {
+        opacity: 0.1;
+    }
+}
+
 /* Rainbow */
 .rainbow{
-    animation: rainbow 4s linear 0s forwards infinite;
-    -webkit-animation: rainbow 4s linear forwards 0s infinite;
+    animation: rainbow 3.5s linear 0s forwards infinite;
+    -webkit-animation: rainbow 3.5s linear forwards 0s infinite;
+}
+
+.delayed_rainbow{
+    animation: rainbow 1.6s linear 0.35s forwards  1;
+    -webkit-animation: rainbow 1.6s linear 0.35s forwards 1;
 }
 
 @keyframes rainbow {
     0% {
-      color: #6666ff;
+      color: #db490f;
     }
-    10% {
-      color: #b4c006;
+    15% {
+        color: rgb(11, 63, 207);
     }
-    50% {
-        color: #ff3399;
+    30% {
+        color: #da0909;
     }
-    75% {
-        color: #0dbe0d;
+    45% {
+        color: #7518ff;
+    }
+    60%{
+        color: #ece21d;
+    }
+    75%{
+        color: #00ad3d;
+    }
+    90%{
+        color: #0ad7ea;
     }
     100% {
-      color: #6666ff;
+      color: #db490f;
     }
   }
 
 .jump{
-    animation: jump 0.8s 1s ease infinite;
-    -webkit-animation: jump 0.8s 1s ease infinite;
+    animation: jump 0.7s both 0s cubic-bezier(.42,.38,.25,.9);
+    -webkit-animation: jump 0.7s both 0s cubic-bezier(.42,.38,.25,.9);
+}
+
+.delayed_jump{
+    animation: jump 0.7s both 0.25s cubic-bezier(.42,.38,.25,.9);
+    -webkit-animation: jump 0.7s both 0.25s cubic-bezier(.42,.38,.25,.9);
+}
+
+.grow-jump{
+    animation: grow_jump 0.8s both 0s ease;
+    -webkit-animation: grow_jump 0.8s both 0s ease;
+}
+
+.c_jump{
+    animation: coin-jump 0.7s 0.475s both cubic-bezier(.42,.38,.25,.9) 1;
+    -webkit-animation: coin-jump 0.7s 0.475s both cubic-bezier(.42,.38,.25,.9) 1;
 }
 
 @keyframes jump{
@@ -116,10 +225,35 @@ h2{
         transform: translateY(0px);
     }
     50%{
-        transform: translateY(-15px);
+        transform: translateY(-24px);
     }
     100%{
         transform: translateY(0px);
+    }
+}
+
+@keyframes coin-jump{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-68px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+
+@keyframes grow_jump{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: scale(1.9) translateY(-15px);
+    }
+    100%{
+        transform: scale(1) translateY(0px);
     }
 }
 
@@ -161,19 +295,110 @@ header button{
 header span {
     text-align: center;
 }
-.card{
-    height: 135px;
-    width: 180px;
-    margin: 3.2rem auto;
-    padding-top: 60px;
+
+
+/* Individual Positioning of stars */
+
+#star1{
+    position: absolute;
+    padding: 5px;
+    left: 250px;
+    top: 30px;
+}
+
+#star2{
+    position: absolute;
+    padding: 5px;
+    right: 290px;
+    top: 75px;
+}
+
+#star3{
+    position: absolute;
+    padding: 5px;
+    top: 95px;
+    left: 130px;
+}
+
+#star4{
+    position: absolute;
+    padding: 5px;
+    top: 95px;
+    left: 450px;
+}
+
+#star5{
+    position: absolute;
+    padding: 5px;
+    top: 50px;
+    left: 580px;
+}
+
+#star6{
+    position: absolute;
+    padding: 5px;
+    top: 300px;
+    left: 200px;
+}
+
+#star7{
+    position: absolute;
+    padding: 5px;
+    top: 250px;
+    right: 350px;
+}
+
+#star8{
+    position: absolute;
+    padding: 5px;
+    top: 350px;
+    right: 150px;
+}
+
+#star9{
+    position: absolute;
+    padding: 5px;
+    top: 230px;
+    left: 80px;
+}
+
+/*  */
+
+.block-container{
+    position: relative;
+    display: block;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mario */
+.mario_container{
     text-align: center;
-    font-size: 4.5rem;
-    background-color: rgb(231, 230, 230);
 }
 
 
+.mario_container img{
+    width: 30px;
+    height: 30px;
+}
+
+/* .mario_container figure:hover img{
+    animation: jump 0.8s both 0s ease;
+    -webkit-animation: jump 0.8s both 0s ease;
+    
+} */
+
+.mario_container img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/*  Start Game  */
 .start_game{
-    position: relative;
+    margin-top: 1rem;
     margin-bottom: 10px;
     width: 100%;
     text-align: center;
@@ -187,7 +412,6 @@ header span {
 }
 
 .start_game img {
-    width:30px;
     margin-bottom: 2px;
 }
 
@@ -205,8 +429,12 @@ header span {
     border: 1px solid yellow;
 }
 
+
 .main_content .left input{
     display: block;
+    /*  */
+    opacity: 0;
+    /*  */
     width: 25rem;
     padding: 2.5rem;
     margin: 0 auto;
@@ -215,9 +443,132 @@ header span {
     font-family: inherit;
     font-size: 5rem;
     transform: scale(0.7);
+    border-radius: 10px;
 }
 .main_content .left button{
     display: block;
+    /*  */
+    opacity: 0;
+    /*  */
     margin: 0 auto;
     font-size: 1.2rem;
 }
+
+.main_content .right{
+    width: 48%;
+    float: right;
+    border: 1px solid yellow;
+}
+
+
+.lives_container h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    letter-spacing: 2px;
+    opacity: 0.9;
+    text-align: center;
+}
+
+.main_content .right ul{
+    width: 100%;
+    float: left;
+    padding-left: 40px;
+    text-align: center;
+    border: 1px solid green;
+}
+
+.main_content .right ul li{
+    float: left;
+    list-style: none;
+    border: 1px solid yellow;
+    margin-right: 10px;
+    padding: 3px;
+}
+
+
+/* 8-bit block */
+
+.block{
+    position: relative;
+    background-color: #ce7710;
+    width: 130px;
+    height: 130px;
+    margin: 80px auto 20px auto;
+    border-radius: 5px;
+    border-right: 0.4em solid black;
+    border-bottom: 0.4em solid black;
+    border-left: 0.4em solid #db490f;
+    border-top: 0.4em solid #db490f;
+
+}
+
+.block .top{
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    top: 6px;
+    left: 6px;
+    background-color: #141414;
+}
+
+.block .top::after{
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    top: 0;
+    right: -96px;
+    background-color: #141414;
+}
+
+.block .bottom{
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    bottom: 6px;
+    left: 6px;
+    background-color: #141414;
+}
+
+.block .bottom::after{
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    bottom: 0;
+    right: -96px;
+    background-color: #141414;
+}
+
+.block .question_mark{
+    position: absolute;
+    font-size: 4.8rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: #d94d15;
+}
+
+.block .question_mark::after{
+    content: '?';
+    z-index: -1;
+    font-size: 4.5rem;
+    position: absolute;
+    top: 6.5px;
+    left: 8.9px;
+    color: #141414;
+}
+
+.block .corner{
+    width: 6px;
+    height: 24.2px;
+    position: absolute;
+    background-color: black;
+    left: 3.9px;
+    bottom: -15.2px;
+    border-radius: 30%;
+    transform: rotate(90deg);
+}
+

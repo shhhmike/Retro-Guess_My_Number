@@ -12,34 +12,77 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
     <header>
         <p class="txt-med">(Between 1 and 20)</p>
         <button class="restart_btn btn">Again!</button>
+
+        <div id='star1' class="star star_close star_blink3"></div>
+        <div id="star2" class="star star_close star_blink2"></div>
+        <div id="star3" class="star star_far star_blink1"></div>
+        <div id="star4" class="star star_close star_blink2"></div>
+        <div id="star5" class="star star_close star_blink1"></div>
+        <div id="star6" class="star star_far star_blink2"></div>
+        <div id="star7" class="star star_far star_blink3"></div>
+        <div id="star8" class="star star_close star_blink1"></div>
+        <div id="star9" class="star star_close star_blink1"></div>
+
         <div class="clr"></div>
+
         <div class="container">
             <h2 class="txt-lg">Guess The Number!</h2>
-            <div class="card"><span class="rainbow">?</span></div>
+            <div class="block-container">
+                <img class="hidden_coin coin" src="./images/coin.png" alt="8-bit-coin">
+                <div class="block">
+                    <div class="top"></div>
+                    <div class="question_mark">?</div>
+                    <div class="corner"></div>
+                    <div class="bottom"></div>
+                </div>
+                <div class="mario_container">
+                    <figure><img class="mario" src="./images/mario.png" alt="8-bit mario"></figure>
+                </div>
+
+            </div>
             <div class="start_game ">
                 <a href="#" class="start-btn blink">Start Game</a>
-                <img class='coin twirl' src="./images/coin.png" alt="mario-coin">
+                <img class=' coin twirl' src="./images/coin.png" alt="mario-coin">
             </div>
         </div>
     </header>
 
+    <!-- Main Content -->
     <div class="main_content container">
+        <!-- Left Side -->
+
         <div class="left">
             <div class="guess">
-                <input type="number">
+                <input class='shadow' type="number">
                 <button class="btn">Check!</button>
             </div>
         </div>
-        <div class="clr"></div>
+        <!-- Right Side -->
 
-        <div class="right"></div>
+        <div class="right">
+            <div class="lives_container">
+                <h2>Lives</h2>
+                <ul>
+                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clr"></div>
     </div>
+    <script src="main.js"></script>
 </body>
 
 </html>
