@@ -7,9 +7,9 @@ mario.addEventListener('mouseover', () => {
     document.querySelector('.hidden_coin').classList.add('c_jump');
 
     // Removing animations after they have run their time and are done
-    setTimeout(() => mario.classList.remove('jump'), 800)
-    setTimeout(() => document.querySelector('.block').classList.remove('delayed_jump'), 950)
-    setTimeout(() => document.querySelector('.question_mark').classList.remove('delayed_rainbow'), 1960)
-    setTimeout(() => document.querySelector('.hidden_coin').classList.remove('c_jump'), 1175)
+    setTimeout(() => mario.classList.remove('jump'), 2000)
+    setTimeout(() => document.querySelector('.block').classList.remove('delayed_jump'), 2000)
+    setTimeout(() => document.querySelector('.question_mark').classList.remove('delayed_rainbow'), 2000)
+    setTimeout(() => document.querySelector('.hidden_coin').classList.remove('c_jump'), 2000)
 
 })

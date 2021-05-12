@@ -17,8 +17,14 @@
 
 <body>
     <header>
-        <p class="txt-med">(Between 1 and 20)</p>
-        <button class="restart_btn btn">Again!</button>
+        <div class="top">
+            <button class="restart_btn btn">Play Again</button>
+            <div class="sun">
+                <figure id="doge">
+                    <img src="./images/DbmOcSf.png" alt="">
+                </figure>
+            </div>
+        </div>
 
         <div id='star1' class="star star_close star_blink3"></div>
         <div id="star2" class="star star_close star_blink2"></div>
@@ -29,11 +35,14 @@
         <div id="star7" class="star star_far star_blink3"></div>
         <div id="star8" class="star star_close star_blink1"></div>
         <div id="star9" class="star star_close star_blink1"></div>
+        <div id="star10" class="star star_far star_blink1"></div>
+        <div id="star11" class="star star_close star_blink2"></div>
+        <div id="star12" class="star star_far star_blink2"></div>
 
         <div class="clr"></div>
 
         <div class="container">
-            <h2 class="txt-lg">Guess The Number!</h2>
+            <h2 class="txt-lg">Space Memes</h2>
             <div class="block-container">
                 <img class="hidden_coin coin" src="./images/coin.png" alt="8-bit-coin">
                 <div class="block">
@@ -54,6 +63,16 @@
         </div>
     </header>
 
+    <div class="moon moon_moving">
+        <div class='crater ' id="crater_1"></div>
+        <div class='crater' id="crater_2"></div>
+        <div class='crater' id="crater_3"></div>
+        <div class='crater' id="crater_4"></div>
+        <figure id="doge">
+            <img src="./images/DbmOcSf.png" alt="">
+        </figure>
+
+    </div>
     <!-- Main Content -->
     <div class="main_content container">
         <!-- Left Side -->
@@ -70,13 +89,13 @@
             <div class="lives_container">
                 <h2>Lives</h2>
                 <ul>
-                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
-                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
-                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
-                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
-                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
-                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
-                    <li> <img class='life_heart' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart heart_pulse' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart heart_pulse' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart heart_pulse' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart heart_pulse' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart heart_pulse' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart heart_pulse' src="./images/heart.png" alt="heart"> </li>
+                    <li> <img class='life_heart heart_pulse' src="./images/heart.png" alt="heart"> </li>
                 </ul>
             </div>
         </div>
